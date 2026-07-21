@@ -138,4 +138,4 @@ Several extensions were explored during development but deferred due to the proj
 - **Internal rechargeable battery** — replacing the USB power bank with an integrated LiPo battery, charging circuit, and boost converter for a fully self-contained wearable
 - **Orientation-based false positive filtering** — using gyroscope/orientation data to distinguish a genuine fall (change in body orientation) from vigorous movement like jumping, which can otherwise trigger a false alarm under the current motion-only detection logic
 
-Siddha Dhok
+Built By: Siddha Dhok
