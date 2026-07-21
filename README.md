@@ -104,9 +104,17 @@ MPU6050 I2C address: `0x68` · OLED I2C address: `0x3C`
 iot-fall-detection-wearable/
 ├── README.md
 ├── firmware/
-│   └── fall_detection.ino        # Main ESP32 sketch
+│   └── i2c_address.ino
+    └── mpu_oled_buzzer_button_test.ino
+    └── mpu_oled_buzzer_test_refined.ino
+    └── mpu_oled_buzzer_test_refined2.ino
+    └── mpu_oled_buzzer_test.ino
+    └── mpu_oled_test1_range_detection.ino
+    └── mpu_oled_test2_range_detection.ino
+    └── mpu_test.ino
+    └── prototype_with_blynk.ino          
 └── docs/
-    └── demo-photos/                # Enclosure and build photos
+    └── demo-photos/                
 ```
 
 ## Setup instructions
