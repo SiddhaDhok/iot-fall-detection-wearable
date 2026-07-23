@@ -98,6 +98,16 @@ Both the MPU6050 and OLED share the same I2C bus:
 
 MPU6050 I2C address: `0x68` · OLED I2C address: `0x3C`
 
+### Circuit diagrams
+
+**Without breadboard (clean schematic):**
+
+![Wiring diagram without breadboard](circuit_diagrams/without_breadboard.png)
+
+**With breadboard (as prototyped):**
+
+![Wiring diagram with breadboard](circuit_diagrams/with_breadboard.png)
+
 ## Repository structure
 
 ```
@@ -112,9 +122,11 @@ iot-fall-detection-wearable/
     └── mpu_oled_test1_range_detection.ino
     └── mpu_oled_test2_range_detection.ino
     └── mpu_test.ino
-    └── prototype_with_blynk.ino          
-└── docs/
-    └── demo-photos/                
+    └── prototype_with_blynk.ino
+    └── prototype_with_blynk_and_telegram(final_version).ino          
+└── circuit_diagrams/
+    └── with_breadboard.png
+    └── without_breadboard.png                
 ```
 
 ## Setup instructions
