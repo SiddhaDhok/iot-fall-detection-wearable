@@ -1,6 +1,6 @@
 # IoT Fall and Faint Detection Wearable
 
-A wearable IoT device that detects falls and fainting episodes using motion sensing, sounds a local alarm with a manual cancel option, notifies a family member or caregiver directly on their phone via Telegram, and pushes live status updates to a cloud dashboard.
+A wearable IoT device that detects falls and fainting episodes using motion sensing, sounds a local alarm with a manual cancel option, notifies a family member or caregiver directly on their phone via Telegram, and pushes live status updates to a cloud dashboard. It's designed to be worn around the neck, like a pendant, rather than on the wrist — a locket is far less likely to be taken off than a smartwatch, which matters especially for senior citizens living alone who might not remember to put a watch back on after a shower, a nap, or doing chores.
 
 ## Why this project
 
