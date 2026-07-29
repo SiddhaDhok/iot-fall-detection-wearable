@@ -157,5 +157,6 @@ Several extensions were explored during development but deferred due to the proj
 - **GSM-based emergency calling** — using a SIM800L module to place an actual phone call to a family member or neighbour if an alert isn't acknowledged, as a fallback channel that doesn't depend on internet connectivity
 - **Internal rechargeable battery** — replacing the USB power bank with an integrated LiPo battery, charging circuit, and boost converter for a fully self-contained wearable
 - **Orientation-based false positive filtering** — using gyroscope/orientation data to distinguish a genuine fall (change in body orientation) from vigorous movement like jumping, which can otherwise trigger a false alarm under the current motion-only detection logic
+- **TinyML-based fall classification** - Training a small neural network on the accelerometer data to classify fall vs. non-fall, instead of the current threshold-based state machine.
 
 Built By: Siddha Dhok
