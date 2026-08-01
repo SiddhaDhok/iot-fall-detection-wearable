@@ -9,7 +9,7 @@ Existing fall-detection solutions on the market (smartwatches, phone-based apps)
 - **Standalone hardware** — doesn't depend on a phone being nearby or charged
 - **Multi-channel alerting** — a Telegram push notification (with sound) rather than a text message, designed to be hard to miss even if the recipient doesn't check texts often
 - **Purpose-built, not multi-purpose** — a dedicated safety device, not a fitness tracker with a fall-detection feature bolted on
-- **Wearable, permanent build** — soldered onto a compact perfboard and housed in an enclosure, not left on a breadboard
+- **Testing** — Prototyped and validated on a breadboard, with a permanent soldered build planned as the next step
 
 ## Features
 
@@ -20,7 +20,6 @@ Existing fall-detection solutions on the market (smartwatches, phone-based apps)
 - **Telegram alert** — if the alarm isn't cancelled within the grace window, the device sends a message directly to a caregiver's phone via a Telegram bot, pushing a notification with sound even if the recipient doesn't have the app open
 - **Live cloud dashboard** (Blynk) showing device status, alarm state, and cumulative fall count in real time
 - **Compact, soldered build** — moved from a breadboard prototype to a permanent perfboard assembly, housed in a wearable enclosure
-- **Battery-independent operation for demo purposes** — powered via USB/power bank, keeping the design simple and portable
 
 ## How this was built
 
@@ -74,9 +73,6 @@ The ESP32 connects to WiFi and streams three pieces of live data to a Blynk IoT 
 | 0.96" I2C OLED display (SSD1306) | Live status display |
 | Active buzzer | Local audible alarm |
 | KY-004 push button module | Manual false-alarm cancellation |
-| Perfboard | Permanent soldered mounting for all components |
-| Project enclosure box | Wearable housing |
-| USB power bank | Portable power source |
 
 ## Software and tools
 
@@ -139,23 +135,16 @@ iot-fall-detection-wearable/
 6. Upload the sketch to the ESP32
 7. Open the Blynk dashboard to view live status, and confirm Telegram alerts arrive on an unacknowledged fall
 
-## Building the permanent version
-
-The prototype was validated on a breadboard, then moved to a soldered perfboard build for durability and a wearable form factor:
-
-1. All fall-detection thresholds were tuned using real breadboard test data before transferring to the permanent build
-2. Components were soldered onto a general-purpose perfboard, sized to fit the ESP32 and shared I2C junctions for the MPU6050 and OLED
-3. The assembled board was mounted inside a project enclosure, with cutouts for the OLED window, cancel button, buzzer opening, and USB power cable
-
 ## Future improvements
 
 Several extensions were explored during development but deferred due to the project timeline:
 
-- **Reduced size and compactness** — the current build is sized around a full ESP32 DevKit (with its USB port and onboard regulator), making the enclosure noticeably bulkier than a typical wearable. A future revision could use a bare ESP32-WROOM module with an external USB-to-serial programmer, or a smaller ESP32-C3/S3 mini board, to shrink the overall footprint closer to a true pendant or wristband size
+**Permanent soldered build** — moving the current breadboard prototype onto a soldered perfboard assembly, housed in a wearable enclosure with cutouts for the OLED window, cancel button, buzzer opening, and USB power cable, for a durable, wearable form factor
+- **Reduced size and compactness** — the current build is sized around a full ESP32 DevKit (with its USB port and onboard regulator), making the prototype noticeably bulkier than a typical wearable. A future revision could use a bare ESP32-WROOM module with an external USB-to-serial programmer, or a smaller ESP32-C3/S3 mini board, to shrink the overall footprint closer to a true pendant
 - **Heart rate sensing (MAX30102)** — fusing motion data with heart rate to improve faint detection specifically, since a faint often lacks the sharp motion signature of a fall
 - **Custom patient dashboard website** — a dedicated web interface (beyond the Blynk dashboard) showing patient name, age, location, and medical history alongside live device status, with proper multi-patient support backed by a real database
 - **GSM-based emergency calling** — using a SIM800L module to place an actual phone call to a family member or neighbour if an alert isn't acknowledged, as a fallback channel that doesn't depend on internet connectivity
-- **Internal rechargeable battery** — replacing the USB power bank with an integrated LiPo battery, charging circuit, and boost converter for a fully self-contained wearable
+- **Internal rechargeable battery** — Using an integrated LiPo battery, charging circuit, and boost converter for a fully self-contained wearable
 - **Orientation-based false positive filtering** — using gyroscope/orientation data to distinguish a genuine fall (change in body orientation) from vigorous movement like jumping, which can otherwise trigger a false alarm under the current motion-only detection logic
 - **TinyML-based fall classification** - Training a small neural network on the accelerometer data to classify fall vs. non-fall, instead of the current threshold-based state machine.
 
